@@ -1,0 +1,9 @@
+.vscode
+.stack-work
+app
+*.elf
+*.bin
+*.exe
+*.o
+task5_c
+task25_c
