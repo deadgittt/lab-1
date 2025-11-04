@@ -67,5 +67,10 @@ jobs:
             ${{ runner.os }}-stack-
 
       - name: 🧰 Install HLint & Ormolu
-        run: |
-          stack install hlint ormolu
+        run: stack install hlint ormolu --no-terminal --fast
+
+      - name: 🔍 Run HLint
+        run: hlint src test
+
+      - name: 🎨 Ormolu check
+        run: ormolu --mode check $(git ls-files '*.hs')
