@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 // Сложение больших чисел, представленных массивами цифр (младшие разряды в начале)
-int add(const int *a, int na, const int *b, int nb, int *c) {
+int
+add(const int *a, int na, const int *b, int nb, int *c) {
     int n = (na > nb ? na : nb);
     int carry = 0;
     for (int i = 0; i < n; ++i) {
@@ -18,7 +19,8 @@ int add(const int *a, int na, const int *b, int nb, int *c) {
 }
 
 // Индекс первого числа Фибоначчи с n цифрами
-int index_fib_with_digits(int n) {
+int
+index_fib_with_digits(int n) {
     if (n <= 1) return 1;
 
     int a[1100] = {1};  // F1
@@ -45,7 +47,8 @@ int index_fib_with_digits(int n) {
     return index;
 }
 
-int main(void) {
+int
+main(void) {
     printf("%d\n", index_fib_with_digits(1000)); // ожидаемо: 4782
     return 0;
 }
