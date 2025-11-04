@@ -1,4 +1,37 @@
+## Задача 5
 
+**Формулировка:**  
+Найти наименьшее положительное число, которое делится на все числа от `1` до `n`.
+
+**Файл:** `src/Task5.hs`  
+
+**Вспомогательные функции:**  
+- `divisibleByAll`, `divisibleByAllTail` — проверка «x делится на все 1..n».
+
+**Реализации:**
+- `smallestMultipleRec` — перебор кандидатов с обычной рекурсией  
+- `smallestMultipleTailRec` — то же, но хвостовая рекурсия  
+- `leastCommonMul` — модульный конвейер: `genCandidates` → `filter (isGood n)` → `head`  
+- `leastCommonMulMap2` — генерация через `map (* n)` + `filter`  
+- `leastCommonMulFor` — list comprehension как синтаксис цикла  
+  
+---
+
+## Задача 25
+
+**Формулировка:**  
+Найти **индекс** первого числа Фибоначчи с заданным количеством цифр `n`  
+(для 1000 цифр ответ `4782`).
+
+**Файл:** `src/Task25.hs`  
+
+**Реализации:**
+- `fibRec`, `fibTailRec` — базовые функции Фибоначчи (наивная и хвостовая)  
+- `indexFibWithDigits` — линейный хвостовой проход по паре `(F_{n-1}, F_n)` до порога `10^(d-1)`  
+- `indexFibDigitsModular` — модульный стиль: `zip [1..] fibs` → `takeWhile` → `fold`  
+- `indexFibDigitsMap` — генерация через `map` в `Maybe` + `catMaybes` + `head`  
+
+---
 
 # Тесты
 --➤  stack test --fast --no-terminal         \
